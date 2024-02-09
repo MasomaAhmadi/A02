@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/styles.css" />
+		<title>Masoma's favorite books</title>
+	</head>
+	<body>
+		<h1>iPhons</h1>
+		<div class="product-grid">
+			<div class="product">
+				<img src="./images/1.png" alt="iPhon" />
+				<h2>iPhon 12 Promax</h2>
+				<p class="price">67000$</p>
+				<button class="add">Add to iPhont</button>
+			</div>
+			<div class="product">
+				<img src="/images/2.png" alt="iPhon" />
+				<h2>iPhon 13 Promax</h2>
+				<p class="price">35000$</p>
+				<button class="add">Add to iPhont</button>
+			</div>
+			<div class="product">
+				<img src="/images/3.png" alt="iPhon" />
+				<h2>iPhon 14 promax</h2>
+				<p class="price">12000$</p>
+				<button class="add">Add to iPhont</button>
+			</div>
+		</div>
+		<div class="total">Total: $<span id="total">0</span></div>
+
+		<footer>
+			<p>Developed by Masoma Ahmadi</p>
+		</footer>
+	</body>
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			const add = document.querySelectorAll('.add')
+			const total = document.getElementById('total')
+
+			function buy( event){
+				const priceEl = event.target.parentElement.querySelector('.price')
+				const priceValue = Number(priceEl.textContent.replace('$',' '))
+				const totalNum = Number(total.textContent)
+
+				total.textContent = totalNum + priceValue
+			}
+
+			add.forEach(btn=> btn.addEventListener('click', buy))
+
+		});
+	</script>
+</html>
